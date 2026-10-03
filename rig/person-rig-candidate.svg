@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     id="person-svg"
+     viewBox="-80 0 880 1080"
+     width="880"
+     height="1080"
+     role="img"
+     aria-labelledby="person-title person-desc">
+  <title id="person-title">Refined layered flat-vector person rig candidate</title>
+  <desc id="person-desc">A headless layered person rig with explicit pivots at the waist, shoulders, elbows, wrists, hips, knees, and ankles.</desc>
+
+  <metadata>
+    Candidate status: unapproved visual direction.
+    Construction: deterministic layered SVG; no generated raster content.
+    Coordinate system: -80 0 880 1080 viewBox, with clearance for the longer torso and thicker limbs.
+    Naming convention: rig-* groups are animation targets; art-* groups are visual-only layers.
+  </metadata>
+
+  <defs>
+    <style>
+      .rig {
+        transform-box: view-box;
+      }
+      .joint-guide {
+        display: none;
+        fill: #ffd84d;
+        stroke: #ffffff;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+      #person-svg.show-pivots .joint-guide {
+        display: block;
+      }
+    </style>
+    <clipPath id="clip-leg-bottom" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="720" height="935"/>
+    </clipPath>
+    <!-- Limbs are generated as tapered capsules: two circles joined by their
+         external tangent lines. Distal segments repeat and overdraw the shared
+         joint circle, giving each hinge a mathematically sealed overlap. -->
+  </defs>
+
+  <!-- Animate this group to move, scale, or rotate the complete character. -->
+  <g id="rig-person" class="rig" data-role="root" data-pivot-x="360" data-pivot-y="520" transform="translate(0 0)">
+
+    <!-- Legs sit behind the shorts. Each distal joint is nested in its parent. -->
+    <g id="layer-legs" data-role="layer" transform="translate(0 75)">
+      <g id="leg-left-offset" transform="translate(-8 0)">
+      <g id="rig-leg-left-upper" class="rig" data-role="upper-leg" data-side="left" data-pivot-x="323" data-pivot-y="547" transform="rotate(0 323 547)">
+        <path id="leg-left-upper-base" d="M285 547.05L285.22 730.04A33 33 0 0 0 351.17 731.76L360.95 549.03A38 38 0 0 0 285 547.05Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round"/>
+
+        <g id="rig-leg-left-lower" class="rig" data-role="lower-leg" data-side="left" data-pivot-x="318.2219321148825" data-pivot-y="730" transform="rotate(0 318.2219321148825 730)">
+          <path id="leg-left-lower-base" d="M285.22 730.29L287 930.23A26 26 0 0 0 338.95 931.59L351.16 732.02A33 33 0 0 0 285.22 730.29Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round" clip-path="url(#clip-leg-bottom)"/>
+
+          <g id="rig-foot-left" class="rig" data-role="foot" data-side="left" data-pivot-x="313" data-pivot-y="930" transform="rotate(0 313 930)">
+            <g id="art-foot-left" transform="translate(10 60) translate(290 878) scale(1.18 1.15) translate(-290 -878)">
+              <path id="foot-left-shoe" d="M276 850C292 845 315 848 325 860L333 874C338 883 332 893 322 894H258C247 894 242 884 248 875C255 864 264 855 276 850Z" fill="#11c5c1"/>
+              <path d="M247 879H334V887C334 893 329 897 322 897H258C251 897 247 893 247 887Z" fill="#087f9b"/>
+              <path d="M275 858C289 853 306 854 316 862" fill="none" stroke="#8ff4eb" stroke-width="7" stroke-linecap="round"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+
+      <g id="leg-right-offset" transform="translate(8 0)">
+      <g id="rig-leg-right-upper" class="rig" data-role="upper-leg" data-side="right" data-pivot-x="397" data-pivot-y="547" transform="rotate(0 397 547)">
+        <path id="leg-right-upper-base" d="M359.05 549.03L368.83 731.76A33 33 0 0 0 434.78 730.04L435 547.05A38 38 0 0 0 359.05 549.03Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round"/>
+
+        <g id="rig-leg-right-lower" class="rig" data-role="lower-leg" data-side="right" data-pivot-x="401.7780678851175" data-pivot-y="730" transform="rotate(0 401.7780678851175 730)">
+          <path id="leg-right-lower-base" d="M368.84 732.02L381.05 931.59A26 26 0 0 0 433 930.23L434.78 730.29A33 33 0 0 0 368.84 732.02Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round" clip-path="url(#clip-leg-bottom)"/>
+
+          <g id="rig-foot-right" class="rig" data-role="foot" data-side="right" data-pivot-x="407" data-pivot-y="930" transform="rotate(0 407 930)">
+            <g id="art-foot-right" transform="translate(-10 60) translate(430 878) scale(1.18 1.15) translate(-430 -878)">
+              <path id="foot-right-shoe" d="M395 860C405 848 428 845 444 850C456 855 465 864 472 875C478 884 473 894 462 894H398C388 893 382 883 387 874Z" fill="#11c5c1"/>
+              <path d="M386 879H473V887C473 893 469 897 462 897H398C391 897 386 893 386 887Z" fill="#087f9b"/>
+              <path d="M404 862C414 854 431 853 445 858" fill="none" stroke="#8ff4eb" stroke-width="7" stroke-linecap="round"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+    </g>
+
+    <!-- The complete upper body can bend from the waist as one connected unit. -->
+    <g id="rig-upper-body" class="rig" data-role="upper-body" data-pivot-x="360" data-pivot-y="585" transform="rotate(0 360 585)">
+
+      <g id="layer-arms" data-role="layer" transform="translate(0 8)">
+        <g id="rig-arm-left-upper" class="rig" data-role="upper-arm" data-side="left" data-pivot-x="276" data-pivot-y="293" transform="rotate(0 276 293)">
+          <path id="arm-left-upper-base" d="M245.20 278.61L188.20 400.61A34 34 0 0 0 249.80 429.39L306.80 307.39A34 34 0 0 0 245.20 278.61Z" fill="#5638b7"/>
+
+          <g id="rig-arm-left-forearm" class="rig" data-role="forearm" data-side="left" data-pivot-x="219" data-pivot-y="415" transform="rotate(0 219 415)">
+            <g id="rig-hand-left" class="rig" data-role="hand" data-side="left" data-pivot-x="204" data-pivot-y="578" transform="rotate(0 204 578)">
+              <g id="art-hand-left" transform="translate(204 588) scale(1.05) translate(-204 -578)">
+              <path id="hand-left-palm" d="M184 562H224C229 562 232 566 232 572L233 594C234 607 226 616 213 616H195C182 616 173 608 174 595L175 576C175 567 178 563 184 562Z" fill="#ffad79"/>
+              <rect id="hand-left-pinky" x="176" y="596" width="12" height="38" rx="6" fill="#ffad79"/>
+              <rect x="190" y="605" width="12" height="33" rx="6" fill="#ffad79"/>
+              <rect x="204" y="605" width="12" height="32" rx="6" fill="#ffad79"/>
+              <rect x="218" y="605" width="12" height="28" rx="6" fill="#ffad79"/>
+              <path id="hand-left-thumb" d="M225 580C232 581 236 586 239 592L244 602C247 608 245 614 240 616C235 618 231 614 228 609L221 597Z" fill="#ffad79"/>
+              </g>
+            </g>
+            <path id="arm-left-forearm-base" d="M185.14 411.88L170.69 568.91Q170.14 574.88 176.11 575.43L231.89 580.57Q237.86 581.12 238.41 575.15L252.86 418.12A34 34 0 0 0 185.14 411.88Z" fill="#5638b7"/>
+            <path id="sleeve-left-wrist-edge" d="M176.11 575.43L231.89 580.57" fill="none" stroke="#3f2793" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </g>
+
+        <g id="rig-arm-right-upper" class="rig" data-role="upper-arm" data-side="right" data-pivot-x="444" data-pivot-y="293" transform="rotate(0 444 293)">
+          <path id="arm-right-upper-base" d="M413.20 307.39L470.20 429.39A34 34 0 0 0 531.80 400.61L474.80 278.61A34 34 0 0 0 413.20 307.39Z" fill="#5638b7"/>
+
+          <g id="rig-arm-right-forearm" class="rig" data-role="forearm" data-side="right" data-pivot-x="501" data-pivot-y="415" transform="rotate(0 501 415)">
+            <g id="rig-hand-right" class="rig" data-role="hand" data-side="right" data-pivot-x="516" data-pivot-y="578" transform="rotate(0 516 578)">
+              <g id="art-hand-right" transform="translate(516 588) scale(1.05) translate(-516 -578)">
+              <path id="hand-right-palm" d="M496 562H536C541 562 544 566 544 572L545 594C546 607 538 616 525 616H507C494 616 485 608 486 595L487 576C487 567 490 563 496 562Z" fill="#ffad79"/>
+              <rect id="hand-right-pinky" x="488" y="596" width="12" height="37" rx="6" fill="#ffad79"/>
+              <rect x="502" y="605" width="12" height="32" rx="6" fill="#ffad79"/>
+              <rect x="516" y="605" width="12" height="33" rx="6" fill="#ffad79"/>
+              <rect x="530" y="605" width="12" height="29" rx="6" fill="#ffad79"/>
+              <path id="hand-right-thumb" d="M537 580C544 581 548 586 551 592L556 602C559 608 557 614 552 616C547 618 543 614 540 609L533 597Z" fill="#ffad79"/>
+              </g>
+            </g>
+            <path id="arm-right-forearm-base" d="M467.14 418.12L481.59 575.15Q482.14 581.12 488.11 580.57L543.89 575.43Q549.86 574.88 549.31 568.91L534.86 411.88A34 34 0 0 0 467.14 418.12Z" fill="#5638b7"/>
+            <path id="sleeve-right-wrist-edge" d="M488.11 580.57L543.89 575.43" fill="none" stroke="#3f2793" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g id="layer-torso" data-role="layer">
+        <path id="torso-shirt-base" d="M360 245C420 245 468 270 468 320V557Q468 597 428 597H292Q252 597 252 557V320C252 270 300 245 360 245Z" fill="#7652d9"/>
+        <path id="shirt-emblem" d="M372 335L345 382H365L347 427L397 368H375L397 335Z" fill="#ffd84d"/>
+      </g>
+
+      <!-- Front-walk foreground sockets. Forearms and their nested hands move
+           here during the walk while the shoulder shapes remain behind the torso. -->
+      <g id="layer-walk-forearms" data-role="walk-foreground-layer" transform="translate(0 8)">
+        <g id="walk-arm-left-overlay" transform="rotate(0 276 293)"></g>
+        <g id="walk-arm-right-overlay" transform="rotate(0 444 293)"></g>
+      </g>
+
+    </g>
+
+    <!-- Hidden by default. Add class="show-pivots" to the root SVG to inspect them. -->
+    <g id="layer-joint-guides" data-role="guide-layer" aria-hidden="true">
+      <circle class="joint-guide" cx="360" cy="585" r="8"/>
+      <circle class="joint-guide" cx="276" cy="301" r="8"/>
+      <circle class="joint-guide" cx="219" cy="423" r="8"/>
+      <circle class="joint-guide" cx="204" cy="586" r="8"/>
+      <circle class="joint-guide" cx="444" cy="301" r="8"/>
+      <circle class="joint-guide" cx="501" cy="423" r="8"/>
+      <circle class="joint-guide" cx="516" cy="586" r="8"/>
+      <circle class="joint-guide" cx="315" cy="547" r="8"/>
+      <circle class="joint-guide" cx="292" cy="730" r="8"/>
+      <circle class="joint-guide" cx="312" cy="930" r="8"/>
+      <circle class="joint-guide" cx="405" cy="547" r="8"/>
+      <circle class="joint-guide" cx="428" cy="730" r="8"/>
+      <circle class="joint-guide" cx="408" cy="930" r="8"/>
+    </g>
+  </g>
+
+  <script><![CDATA[
+    (() => {
+      const projectionAngle = Number(new URLSearchParams(location.search).get('t') || 0);
+      if (Number.isFinite(projectionAngle) && Math.abs(projectionAngle) > 1e-9) return;
+
+      let frameId = 0;
+      let startedAt = 0;
+      const qaTimeParam = new URLSearchParams(location.search).get('qaTime');
+      const fixedQaSeconds = qaTimeParam === null ? null : Number(qaTimeParam);
+
+      function rotate(id, angle) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        const x = element.dataset.pivotX;
+        const y = element.dataset.pivotY;
+        const transform = `rotate(${angle} ${x} ${y})`;
+        element.setAttribute('transform', transform);
+
+        const overlayByUpperArm = {
+          'rig-arm-left-upper': ['walk-arm-left-overlay', 'rig-arm-left-forearm'],
+          'rig-arm-right-upper': ['walk-arm-right-overlay', 'rig-arm-right-forearm'],
+        };
+        const overlayTarget = overlayByUpperArm[id];
+        if (!overlayTarget) return;
+        const overlay = document.getElementById(overlayTarget[0]);
+        const forearm = document.getElementById(overlayTarget[1]);
+        if (overlay?.contains(forearm)) overlay.setAttribute('transform', transform);
+      }
+
+      function setWalkFrontArm(frontSide) {
+        const armParts = [
+          ['left', 'rig-arm-left-upper', 'rig-arm-left-forearm', 'walk-arm-left-overlay'],
+          ['right', 'rig-arm-right-upper', 'rig-arm-right-forearm', 'walk-arm-right-overlay'],
+        ];
+
+        for (const [side, upperId, forearmId, overlayId] of armParts) {
+          const upper = document.getElementById(upperId);
+          const forearm = document.getElementById(forearmId);
+          const overlay = document.getElementById(overlayId);
+          if (!upper || !forearm || !overlay) continue;
+
+          if (side === frontSide) {
+            overlay.setAttribute('transform', upper.getAttribute('transform'));
+            if (forearm.parentNode !== overlay) overlay.appendChild(forearm);
+          } else {
+            if (forearm.parentNode !== upper) upper.appendChild(forearm);
+            overlay.setAttribute('transform', `rotate(0 ${upper.dataset.pivotX} ${upper.dataset.pivotY})`);
+          }
+        }
+      }
+
+      function setWalkArmOcclusion(enabled) {
+        setWalkFrontArm(enabled ? 'right' : null);
+      }
+
+      function positionLeg(id, x, y) {
+        const element = document.getElementById(id);
+        if (element) element.setAttribute('transform', `translate(${x} ${y})`);
+      }
+
+      function moveRoot(x, y) {
+        document.getElementById('rig-person')?.setAttribute('transform', `translate(${x} ${y})`);
+      }
+
+      function resetPose() {
+        cancelAnimationFrame(frameId);
+        setWalkArmOcclusion(false);
+        positionLeg('leg-left-offset', -8, 0);
+        positionLeg('leg-right-offset', 8, 0);
+        const rigPerson = document.getElementById('rig-person');
+        if (rigPerson) {
+          delete rigPerson.dataset.gaitMode;
+          delete rigPerson.dataset.gaitStancePercent;
+          delete rigPerson.dataset.gaitSwingPercent;
+          delete rigPerson.dataset.flightPhase;
+          delete rigPerson.dataset.doubleSupport;
+          delete rigPerson.dataset.contactFoot;
+          delete rigPerson.dataset.leftLegPhase;
+          delete rigPerson.dataset.rightLegPhase;
+          delete rigPerson.dataset.rootVertical;
+          delete rigPerson.dataset.runState;
+        }
+        document.querySelectorAll('.rig[data-pivot-x][data-pivot-y]').forEach(element => {
+          element.setAttribute('transform', `rotate(0 ${element.dataset.pivotX} ${element.dataset.pivotY})`);
+        });
+      }
+
+      function animate(now) {
+        const seconds = Number.isFinite(fixedQaSeconds)
+          ? Math.max(0, fixedQaSeconds)
+          : (now - startedAt) / 1000;
+        const mode = location.hash.slice(1);
+
+        if (mode === 'wave') {
+          const wave = Math.sin(seconds * 7);
+          const settle = Math.sin(seconds * 3.5);
+          rotate('rig-arm-right-upper', -62 + settle * 3);
+          rotate('rig-arm-right-forearm', -112 + wave * 16);
+          rotate('rig-hand-right', wave * 20);
+          rotate('rig-arm-left-upper', -4 - settle * 2);
+          rotate('rig-hand-left', settle * 5);
+          rotate('rig-leg-left-upper', settle * 0.5);
+          rotate('rig-leg-right-upper', -settle * 0.5);
+          rotate('rig-upper-body', -2 + settle * 1.5);
+        } else if (mode === 'walk') {
+          const halfStepDuration = 0.68;
+          const loopTime = seconds % (halfStepDuration * 8);
+          const halfStep = Math.floor(loopTime / halfStepDuration);
+          const progress = (loopTime / halfStepDuration) - halfStep;
+          const smoothstep = value => {
+            const x = Math.max(0, Math.min(1, value));
+            return x * x * (3 - 2 * x);
+          };
+          const doubleSupportEnd = 0.18;
+          const swingPhase = Math.max(0, Math.min(1,
+            (progress - doubleSupportEnd) / (1 - doubleSupportEnd)
+          ));
+          const swingArc = Math.sin(Math.PI * smoothstep(swingPhase));
+          const leftIsPlanted = halfStep % 2 === 0;
+          const rootY = -5 * Math.sin(Math.PI * progress);
+          const rootX = (leftIsPlanted ? -1 : 1) * 3 * Math.sin(Math.PI * progress);
+          const swingLift = 36 * swingArc;
+          const leftLift = leftIsPlanted ? 0 : swingLift;
+          const rightLift = leftIsPlanted ? swingLift : 0;
+          const heelLift = 7 * swingArc;
+          const armPhase = Math.cos(Math.PI * (halfStep + progress - 0.08));
+
+          setWalkFrontArm(armPhase >= 0 ? 'right' : 'left');
+          moveRoot(rootX, rootY);
+          positionLeg('leg-left-offset', -8, -rootY - leftLift);
+          positionLeg('leg-right-offset', 8, -rootY - rightLift);
+          rotate('rig-leg-left-upper', 0);
+          rotate('rig-leg-right-upper', 0);
+          rotate('rig-leg-left-lower', leftIsPlanted ? 0 : -3 * swingArc);
+          rotate('rig-leg-right-lower', leftIsPlanted ? 3 * swingArc : 0);
+          rotate('rig-foot-left', leftIsPlanted ? 0 : heelLift + 3 * swingArc);
+          rotate('rig-foot-right', leftIsPlanted ? -heelLift - 3 * swingArc : 0);
+          rotate('rig-arm-left-upper', -armPhase * 6);
+          rotate('rig-arm-right-upper', armPhase * 6);
+          rotate('rig-arm-left-forearm', 0);
+          rotate('rig-arm-right-forearm', 0);
+          rotate('rig-upper-body', 0);
+        } else if (mode === 'run') {
+          const halfStepDuration = 0.33;
+          const halfStepsPerLoop = 10;
+          const dutyFactor = 0.28;
+          const supportEnd = dutyFactor * 2;
+          const loopTime = seconds % (halfStepDuration * halfStepsPerLoop);
+          const halfStep = Math.floor(loopTime / halfStepDuration);
+          const progress = (loopTime / halfStepDuration) - halfStep;
+          const smoothstep = value => {
+            const x = Math.max(0, Math.min(1, value));
+            return x * x * (3 - 2 * x);
+          };
+          const leftIsContactLeg = halfStep % 2 === 0;
+          const contactLegPhase = progress * 0.5;
+          const otherLegPhase = 0.5 + progress * 0.5;
+
+          const footLift = phase => {
+            if (phase < dutyFactor) return 0;
+            const swingProgress = Math.max(0, Math.min(1,
+              (phase - dutyFactor) / (1 - dutyFactor)
+            ));
+            return 58 * Math.sin(Math.PI * swingProgress);
+          };
+
+          const stanceProgress = Math.min(1, progress / supportEnd);
+          let rootY = -8 * Math.sin(Math.PI * stanceProgress);
+          if (progress > supportEnd) {
+            const flightProgress = (progress - supportEnd) / (1 - supportEnd);
+            rootY = -18 * Math.sin(Math.PI * flightProgress);
+          }
+
+          const contactLift = footLift(contactLegPhase);
+          const otherLift = footLift(otherLegPhase);
+          const leftLift = leftIsContactLeg ? contactLift : otherLift;
+          const rightLift = leftIsContactLeg ? otherLift : contactLift;
+          positionLeg('leg-left-offset', -8, -leftLift - rootY);
+          positionLeg('leg-right-offset', 8, -rightLift - rootY);
+          moveRoot(0, rootY);
+          rotate('rig-leg-left-upper', 0);
+          rotate('rig-leg-right-upper', 0);
+          const leftRecovery = Math.max(0, Math.min(1, leftLift / 58));
+          const rightRecovery = Math.max(0, Math.min(1, rightLift / 58));
+          rotate('rig-leg-left-lower', -14 * leftRecovery);
+          rotate('rig-leg-right-lower', 14 * rightRecovery);
+          rotate('rig-foot-left', 14 * leftRecovery);
+          rotate('rig-foot-right', -14 * rightRecovery);
+
+          const armPhase = Math.cos(Math.PI * (halfStep + progress));
+          const frontArm = armPhase >= 0 ? 'right' : 'left';
+          setWalkFrontArm(frontArm);
+          rotate('rig-arm-left-upper', -armPhase * 10);
+          rotate('rig-arm-right-upper', armPhase * 10);
+          rotate('rig-arm-left-forearm', 0);
+          rotate('rig-arm-right-forearm', 0);
+          rotate('rig-upper-body', 0);
+
+          const rigPerson = document.getElementById('rig-person');
+          rigPerson.dataset.gaitMode = 'run';
+          rigPerson.dataset.gaitStancePercent = '28';
+          rigPerson.dataset.gaitSwingPercent = '72';
+          rigPerson.dataset.flightPhase = String(progress > supportEnd);
+          rigPerson.dataset.doubleSupport = 'false';
+          rigPerson.dataset.contactFoot = progress > supportEnd
+            ? 'none'
+            : (leftIsContactLeg ? 'left' : 'right');
+          rigPerson.dataset.leftLegPhase = (leftIsContactLeg ? contactLegPhase : otherLegPhase).toFixed(3);
+          rigPerson.dataset.rightLegPhase = (leftIsContactLeg ? otherLegPhase : contactLegPhase).toFixed(3);
+          rigPerson.dataset.rootVertical = rootY.toFixed(3);
+          rigPerson.dataset.runState = JSON.stringify({
+            halfStep,
+            progress: Number(progress.toFixed(4)),
+            flight: progress > supportEnd,
+            contact: progress > supportEnd ? 'none' : (leftIsContactLeg ? 'left' : 'right'),
+            rootY: Number(rootY.toFixed(3)),
+            leftLift: Number(leftLift.toFixed(3)),
+            rightLift: Number(rightLift.toFixed(3)),
+            leftArm: Number((-armPhase * 10).toFixed(3)),
+            rightArm: Number((armPhase * 10).toFixed(3))
+          });
+        } else {
+          return;
+        }
+
+        if (!Number.isFinite(fixedQaSeconds)) {
+          frameId = requestAnimationFrame(animate);
+        }
+      }
+
+      function startMode() {
+        resetPose();
+        const mode = location.hash.slice(1);
+        if (mode !== 'wave' && mode !== 'walk' && mode !== 'run') return;
+        setWalkArmOcclusion(mode === 'walk' || mode === 'run');
+        startedAt = performance.now();
+        frameId = requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('hashchange', startMode);
+      startMode();
+    })();
+  ]]></script>
+</svg>

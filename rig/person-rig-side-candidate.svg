@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     id="person-svg"
+     viewBox="-80 0 880 1080"
+     width="880"
+     height="1080"
+     role="img"
+     aria-labelledby="person-title person-desc">
+  <title id="person-title">Layered flat-vector person rig, right-facing side view</title>
+  <desc id="person-desc">A simplified headless side-view person with one visible arm and two separate, equally thick rigged legs with right-facing shoes walking on a flat path.</desc>
+
+  <metadata>
+    Candidate status: unapproved side-view visual direction.
+    Structural authority: person-rig-candidate.svg front-view master.
+    Construction: deterministic layered SVG with flat fills and explicit joint pivots.
+  </metadata>
+
+  <defs>
+    <style>
+      .rig { transform-box: view-box; }
+      .joint-guide {
+        display: none;
+        fill: #ffd84d;
+        stroke: #ffffff;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+      #person-svg.show-pivots .joint-guide { display: block; }
+    </style>
+  </defs>
+
+  <g id="layer-ground" data-role="layer" aria-label="Walking path">
+    <path id="walking-path" d="M-80 1018H800V1080H-80Z" fill="#32196f"/>
+    <path id="walking-path-edge" d="M-80 1026H800" fill="none" stroke="#7652d9" stroke-width="8"/>
+  </g>
+
+  <g id="work-object" data-role="ground-work-area" visibility="hidden">
+    <rect id="work-ground" x="0" y="872" width="720" height="168" fill="#32196f"/>
+    <path d="M0 876H720" fill="none" stroke="#7652d9" stroke-width="8"/>
+    <path d="M530 860L570 925" fill="none" stroke="#11c5c1" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <g id="rig-person" class="rig" data-role="root" data-pivot-x="380" data-pivot-y="520" transform="translate(0 0)">
+    <!-- The far arm is behind the complete body; its bent forearm emerges at the front edge. -->
+    <g id="layer-back-arm" data-role="layer" aria-label="Far arm behind body" transform="translate(70 0)">
+      <g id="rig-arm-left-upper" class="rig" data-role="upper-arm" data-side="left" data-pivot-x="334" data-pivot-y="300" transform="rotate(0 334 300)">
+        <path id="arm-left-upper-base" d="M304 296L288 426A30 30 0 0 0 348 434L364 304A30 30 0 0 0 304 296Z" fill="#472e9c"/>
+        <g id="rig-arm-left-forearm" class="rig" data-role="forearm" data-side="left" data-pivot-x="318" data-pivot-y="430" data-rest-angle="-17" transform="rotate(-17 318 430)">
+          <g id="rig-hand-left" class="rig" data-role="hand" data-side="left" data-pivot-x="310" data-pivot-y="580" transform="rotate(0 310 580)">
+            <g id="art-hand-left">
+              <path id="hand-left-palm" d="M289 572H326Q334 572 335 581L336 606C337 617 329 625 318 625H302C290 625 282 617 283 606L284 584Q284 574 289 572Z" fill="#f19a69"/>
+              <rect x="284" y="608" width="11" height="32" rx="5.5" fill="#f19a69"/>
+              <rect x="297" y="613" width="11" height="30" rx="5.5" fill="#f19a69"/>
+              <rect x="310" y="613" width="11" height="29" rx="5.5" fill="#f19a69"/>
+              <rect id="hand-left-index" x="323" y="609" width="11" height="29" rx="5.5" fill="#f19a69"/>
+              <path id="hand-left-thumb" d="M326 589Q337 591 342 603L346 612Q348 619 342 623Q336 626 332 619L324 606Z" fill="#f19a69"/>
+            </g>
+          </g>
+          <path id="arm-left-forearm-base" d="M288 426L282 576Q282 582 288 582H332Q338 582 338 576L348 434A30 30 0 0 0 288 426Z" fill="#472e9c"/>
+          <path id="sleeve-left-wrist-edge" d="M288 582H332" fill="none" stroke="#36217e" stroke-width="6" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Far leg matches the near leg's thickness, stays separate, and sits behind it. -->
+    <g id="layer-legs" data-role="layer">
+      <g id="rig-leg-left-spread" data-role="leg-position" transform="rotate(0 392 575)">
+        <g id="rig-leg-left-upper" class="rig" data-role="upper-leg" data-side="left" data-pivot-x="392" data-pivot-y="575" transform="rotate(0 392 575)">
+          <path id="leg-left-upper-base" d="M356 578L376 773A32 32 0 0 0 440 767L428 572A36 36 0 0 0 356 578Z" fill="#472e9c" stroke="#472e9c" stroke-width="32" stroke-linejoin="round"/>
+          <g id="rig-leg-left-lower" class="rig" data-role="lower-leg" data-side="left" data-pivot-x="408" data-pivot-y="770" transform="rotate(0 408 770)">
+            <path id="leg-left-lower-base" d="M376 768L372 970Q372 995 397 995Q422 995 422 970L440 772A32 32 0 0 0 376 768Z" fill="#472e9c" stroke="#472e9c" stroke-width="32" stroke-linejoin="round"/>
+            <g id="rig-foot-left" class="rig" data-role="foot" data-side="left" data-pivot-x="397" data-pivot-y="970" transform="rotate(0 397 970)">
+              <g id="art-foot-left">
+                <path id="foot-left-shoe" d="M380 932C405 928 432 935 451 951C465 963 478 977 484 989C492 1000 486 1015 471 1018H380C367 1018 359 1010 361 997C363 976 367 951 380 932Z" fill="#0da9b3"/>
+                <path d="M361 998Q361 995 365 995H486V1005Q486 1017 474 1017H374Q361 1017 361 1005Z" fill="#087f9b"/>
+                <path d="M389 964Q416 956 441 969" fill="none" stroke="#65ddd8" stroke-width="7" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <g id="rig-leg-right-position" data-role="leg-position" transform="translate(-42 0)">
+        <g id="rig-leg-right-upper" class="rig" data-role="upper-leg" data-side="right" data-pivot-x="392" data-pivot-y="575" transform="rotate(0 392 575)">
+          <path id="leg-right-upper-base" d="M356 578L376 773A32 32 0 0 0 440 767L428 572A36 36 0 0 0 356 578Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round"/>
+          <g id="rig-leg-right-lower" class="rig" data-role="lower-leg" data-side="right" data-pivot-x="408" data-pivot-y="770" transform="rotate(0 408 770)">
+            <path id="leg-right-lower-base" d="M376 768L372 970Q372 995 397 995Q422 995 422 970L440 772A32 32 0 0 0 376 768Z" fill="#5638b7" stroke="#5638b7" stroke-width="32" stroke-linejoin="round"/>
+            <g id="rig-foot-right" class="rig" data-role="foot" data-side="right" data-pivot-x="397" data-pivot-y="970" transform="rotate(0 397 970)">
+              <g id="art-foot-right">
+                <path id="foot-right-shoe" d="M380 932C405 928 432 935 451 951C465 963 478 977 484 989C492 1000 486 1015 471 1018H380C367 1018 359 1010 361 997C363 976 367 951 380 932Z" fill="#11c5c1"/>
+                <path d="M361 998Q361 995 365 995H486V1005Q486 1017 474 1017H374Q361 1017 361 1005Z" fill="#087f9b"/>
+                <path d="M389 964Q416 956 441 969" fill="none" stroke="#8ff4eb" stroke-width="7" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <g id="rig-upper-body" class="rig" data-role="upper-body" data-pivot-x="380" data-pivot-y="585" transform="rotate(0 380 585)">
+      <g id="layer-work-head" data-role="work-head" visibility="hidden"></g>
+      <g id="layer-torso" data-role="layer">
+        <path id="torso-shirt-base" d="M350 245C402 245 438 270 446 312L455 552Q458 596 418 600H335Q300 600 300 560V325Q300 272 350 245Z" fill="#7652d9"/>
+        <path id="shirt-emblem" d="M430 350L416 374H427L418 397L444 366H432L444 350Z" fill="#ffd84d"/>
+      </g>
+
+      <!-- The nearer profile arm stays in front of the torso. -->
+      <g id="layer-arms" data-role="layer">
+        <g id="rig-arm-right-position" data-role="arm-position" transform="translate(-12 0)">
+          <g id="rig-arm-right-upper" class="rig" data-role="upper-arm" data-side="right" data-pivot-x="380" data-pivot-y="340" transform="rotate(0 380 340)">
+            <path id="arm-right-upper-base" d="M346.4 345.2L364.4 460.2A34 34 0 0 0 431.6 449.8L413.6 334.8A34 34 0 0 0 346.4 345.2Z" fill="#5638b7"/>
+            <g id="rig-arm-right-forearm" class="rig" data-role="forearm" data-side="right" data-pivot-x="398" data-pivot-y="455" transform="rotate(0 398 455)">
+              <g id="rig-hand-right" class="rig" data-role="hand" data-side="right" data-pivot-x="445" data-pivot-y="590" transform="rotate(0 445 590)">
+                <g id="art-hand-right" transform="translate(445 590) scale(.92) translate(-445 -590)">
+                  <path id="hand-right-palm" d="M423 582H464Q472 582 473 591L474 616C475 628 467 637 455 637H438C425 637 417 629 418 616L419 594Q419 584 423 582Z" fill="#ffad79"/>
+                  <rect x="419" y="619" width="12" height="34" rx="6" fill="#ffad79"/>
+                  <rect x="433" y="624" width="12" height="33" rx="6" fill="#ffad79"/>
+                  <rect x="447" y="624" width="12" height="32" rx="6" fill="#ffad79"/>
+                  <rect id="hand-right-index" x="461" y="619" width="12" height="30" rx="6" fill="#ffad79"/>
+                  <path id="hand-right-thumb" d="M464 598Q475 600 481 613L485 622Q487 630 481 634Q475 637 471 630L462 616Z" fill="#ffad79"/>
+                </g>
+              </g>
+              <path id="arm-right-forearm-base" d="M365.9 466.2L418.6 593.2Q416.6 599 422.4 601L466.6 586.8Q472.4 584.8 470.4 579L430.1 443.8A34 34 0 0 0 365.9 466.2Z" fill="#5638b7"/>
+              <path id="sleeve-right-wrist-edge" d="M422.4 601L466.6 586.8" fill="none" stroke="#3f2793" stroke-width="6" stroke-linecap="round"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <g id="layer-joint-guides" data-role="guide-layer" aria-hidden="true">
+      <circle class="joint-guide" cx="380" cy="585" r="8"/>
+      <circle class="joint-guide" cx="404" cy="300" r="8"/>
+      <circle class="joint-guide" cx="388" cy="430" r="8"/>
+      <circle class="joint-guide" cx="424" cy="576" r="8"/>
+      <circle class="joint-guide" cx="368" cy="340" r="8"/>
+      <circle class="joint-guide" cx="386" cy="455" r="8"/>
+      <circle class="joint-guide" cx="433" cy="590" r="8"/>
+      <circle class="joint-guide" cx="392" cy="575" r="8" style="display:none"/>
+      <circle class="joint-guide" cx="408" cy="770" r="8" style="display:none"/>
+      <circle class="joint-guide" cx="397" cy="970" r="8" style="display:none"/>
+      <circle class="joint-guide" cx="350" cy="575" r="8"/>
+      <circle class="joint-guide" cx="366" cy="770" r="8"/>
+      <circle class="joint-guide" cx="355" cy="970" r="8"/>
+    </g>
+  </g>
+
+  <g id="work-ground-foreground" visibility="hidden">
+    <rect x="0" y="882" width="720" height="158" fill="#32196f"/>
+  </g>
+
+  <script><![CDATA[
+    (() => {
+      let frameId = 0;
+      let startedAt = 0;
+      const qaTimeParam = new URLSearchParams(location.search).get('qaTime');
+      const fixedQaSeconds = qaTimeParam === null ? null : Number(qaTimeParam);
+
+      function rotate(id, angle) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        const x = element.dataset.pivotX;
+        const y = element.dataset.pivotY;
+        element.setAttribute('transform', `rotate(${angle} ${x} ${y})`);
+      }
+
+      function moveRoot(x, y) {
+        document.getElementById('rig-person')?.setAttribute('transform', `translate(${x} ${y})`);
+      }
+
+      function setLeftLegSpread(angle) {
+        document.getElementById('rig-leg-left-spread')
+          ?.setAttribute('transform', `rotate(${angle} 392 575)`);
+      }
+
+      function shoeAnkleFromContact(contactX, contactY, rootX, rootY, heelAngle = 0) {
+        const radians = heelAngle * Math.PI / 180;
+        const pivotOffset = heelAngle >= 0
+          ? { x: 89, y: 48 }
+          : { x: -36, y: 48 };
+        const soleCentreOffset = { x: 50.5, y: 48 };
+        const pivotAnchorX = contactX + pivotOffset.x - soleCentreOffset.x;
+        const pivotAnchorY = contactY + pivotOffset.y - soleCentreOffset.y;
+        const rotatedPivotX = pivotOffset.x * Math.cos(radians) - pivotOffset.y * Math.sin(radians);
+        const rotatedPivotY = pivotOffset.x * Math.sin(radians) + pivotOffset.y * Math.cos(radians);
+        return {
+          x: pivotAnchorX - rootX - rotatedPivotX,
+          y: pivotAnchorY - rootY - rotatedPivotY
+        };
+      }
+
+      function solveLeg(contactX, contactY, rootX, rootY, hipShift = 0, heelAngle = 0) {
+        const upperVector = { x: 16, y: 195 };
+        const lowerVector = { x: -11, y: 200 };
+        const upperLength = Math.hypot(upperVector.x, upperVector.y);
+        const lowerLength = Math.hypot(lowerVector.x, lowerVector.y);
+        const upperBase = Math.atan2(upperVector.y, upperVector.x);
+        const lowerBase = Math.atan2(lowerVector.y, lowerVector.x);
+        const ankle = shoeAnkleFromContact(contactX, contactY, rootX, rootY, heelAngle);
+        const ankleX = ankle.x;
+        const ankleY = ankle.y;
+        const dx = ankleX - (392 + hipShift);
+        const dy = ankleY - 575;
+        const distanceSquared = dx * dx + dy * dy;
+        const cosine = Math.max(-1, Math.min(1,
+          (distanceSquared - upperLength * upperLength - lowerLength * lowerLength)
+          / (2 * upperLength * lowerLength)
+        ));
+        const bend = Math.acos(cosine);
+        const upperWorld = Math.atan2(dy, dx)
+          - Math.atan2(lowerLength * Math.sin(bend), upperLength + lowerLength * Math.cos(bend));
+        const toDegrees = 180 / Math.PI;
+        const upper = (upperWorld - upperBase) * toDegrees;
+        const lower = (bend + upperBase - lowerBase) * toDegrees;
+        return { upper, lower, foot: heelAngle - (upper + lower) };
+      }
+
+      function plantedRootY(contactX, contactY, rootX, hipShift = 0, heelAngle = 0, kneeBendDegrees = 4) {
+        const upperVector = { x: 16, y: 195 };
+        const lowerVector = { x: -11, y: 200 };
+        const upperLength = Math.hypot(upperVector.x, upperVector.y);
+        const lowerLength = Math.hypot(lowerVector.x, lowerVector.y);
+        const upperBase = Math.atan2(upperVector.y, upperVector.x);
+        const lowerBase = Math.atan2(lowerVector.y, lowerVector.x);
+        const plantedKneeBend = kneeBendDegrees * Math.PI / 180;
+        const bend = plantedKneeBend - upperBase + lowerBase;
+        const reach = Math.sqrt(
+          upperLength * upperLength + lowerLength * lowerLength
+          + 2 * upperLength * lowerLength * Math.cos(bend)
+        );
+        const ankle = shoeAnkleFromContact(contactX, contactY, rootX, 0, heelAngle);
+        const ankleX = ankle.x;
+        const horizontal = ankleX - (392 + hipShift);
+        const vertical = Math.sqrt(Math.max(0, reach * reach - horizontal * horizontal));
+        return ankle.y - 575 - vertical;
+      }
+
+      function resetPose() {
+        cancelAnimationFrame(frameId);
+        const rigPerson = document.getElementById('rig-person');
+        if (rigPerson) {
+          delete rigPerson.dataset.leftFootAngle;
+          delete rigPerson.dataset.rightFootAngle;
+          delete rigPerson.dataset.doubleSupport;
+          delete rigPerson.dataset.swingPhase;
+          delete rigPerson.dataset.flightPhase;
+          delete rigPerson.dataset.gaitMode;
+          delete rigPerson.dataset.leftLegPhase;
+          delete rigPerson.dataset.rightLegPhase;
+          delete rigPerson.dataset.runState;
+          delete rigPerson.dataset.gaitStancePercent;
+          delete rigPerson.dataset.gaitSwingPercent;
+          delete rigPerson.dataset.workAmount;
+          delete rigPerson.dataset.workPhase;
+        }
+        const workObject = document.getElementById('work-object');
+        workObject?.setAttribute('visibility', 'hidden');
+        workObject?.setAttribute('opacity', '0');
+        document.getElementById('work-ground-foreground')?.setAttribute('visibility', 'hidden');
+        document.getElementById('layer-work-head')?.setAttribute('visibility', 'hidden');
+        document.getElementById('layer-ground')?.setAttribute('visibility', 'visible');
+        document.documentElement.setAttribute('viewBox', '-80 0 880 1080');
+        document.documentElement.setAttribute('width', '880');
+        document.documentElement.setAttribute('height', '1080');
+        document.getElementById('layer-back-arm')?.setAttribute('transform', 'translate(70 0)');
+        document.querySelectorAll('.rig[data-pivot-x][data-pivot-y]').forEach(element => {
+          if (element.id === 'rig-person') {
+            element.setAttribute('transform', 'translate(0 0)');
+          } else {
+            const restAngle = Number(element.dataset.restAngle || 0);
+            element.setAttribute('transform', `rotate(${restAngle} ${element.dataset.pivotX} ${element.dataset.pivotY})`);
+          }
+        });
+        setLeftLegSpread(0);
+      }
+
+      function animate(now) {
+        const seconds = Number.isFinite(fixedQaSeconds)
+          ? Math.max(0, fixedQaSeconds)
+          : (now - startedAt) / 1000;
+        const mode = location.hash.slice(1);
+        if (mode === 'wave') {
+          const wave = Math.sin(seconds * 7);
+          const settle = Math.sin(seconds * 3.5);
+          rotate('rig-arm-right-upper', -62 + settle * 3);
+          rotate('rig-arm-right-forearm', -112 + wave * 16);
+          rotate('rig-hand-right', wave * 20);
+          rotate('rig-arm-left-upper', -4 - settle * 2);
+          rotate('rig-hand-left', settle * 5);
+          rotate('rig-leg-left-upper', -settle * 0.5);
+          rotate('rig-leg-right-upper', -settle * 0.5);
+          rotate('rig-upper-body', -2 + settle * 1.5);
+        } else if (mode === 'work' || mode.startsWith('work-')) {
+          const poses = [
+            { name: 'deep-squat', rootY: 190, torso: 55, frameX: -188, frameY: -298, scale: 1.14, leftUpper: -70, leftLower: 70, rightUpper: -76, rightLower: 76, leftArm: -40, leftElbow: -36, rightArm: -31, rightElbow: -30 },
+            { name: 'one-knee', rootY: 220, torso: 52, frameX: 28, frameY: -34, scale: .87, leftUpper: -80, leftLower: 100, rightUpper: 0, rightLower: 90, leftArm: -39, leftElbow: -36, rightArm: -28, rightElbow: -30 }
+          ];
+          const requestedPose = mode === 'work' ? 'deep-squat' : mode.slice(5);
+          const current = poses.find(pose => pose.name === requestedPose) || poses[0];
+          const working = Math.sin(seconds * Math.PI * 2 * 1.5);
+
+          setLeftLegSpread(0);
+          document.getElementById('rig-person').setAttribute(
+            'transform',
+            `translate(${current.frameX} ${current.frameY}) scale(${current.scale}) translate(-80 ${current.rootY})`
+          );
+          document.documentElement.setAttribute('viewBox', '0 0 720 1040');
+          document.documentElement.setAttribute('width', '720');
+          document.documentElement.setAttribute('height', '1040');
+          document.getElementById('layer-back-arm').setAttribute(
+            'transform',
+            `translate(70 0) rotate(${current.torso} 380 585)`
+          );
+          rotate('rig-leg-right-upper', current.rightUpper);
+          rotate('rig-leg-right-lower', current.rightLower);
+          rotate('rig-foot-right', 0);
+          rotate('rig-leg-left-upper', current.leftUpper);
+          rotate('rig-leg-left-lower', current.leftLower);
+          rotate('rig-foot-left', 0);
+          rotate('rig-arm-right-upper', current.rightArm - working * 1.2);
+          rotate('rig-arm-right-forearm', current.rightElbow - working * 4);
+          rotate('rig-hand-right', -working * 3);
+          rotate('rig-arm-left-upper', current.leftArm + working * 1.2);
+          rotate('rig-arm-left-forearm', current.leftElbow + working * 4);
+          rotate('rig-hand-left', working * 3);
+          rotate('rig-upper-body', current.torso);
+
+          const rigPerson = document.getElementById('rig-person');
+          rigPerson.dataset.gaitMode = `work-${current.name}`;
+          rigPerson.dataset.workAmount = '1.000';
+          rigPerson.dataset.workPhase = working.toFixed(3);
+          rigPerson.dataset.workPose = current.name;
+          const workObject = document.getElementById('work-object');
+          workObject.setAttribute('visibility', 'visible');
+          workObject.setAttribute('opacity', '1');
+          document.getElementById('work-ground-foreground').setAttribute('visibility', 'visible');
+          document.getElementById('layer-work-head').setAttribute('visibility', 'visible');
+          document.getElementById('layer-ground').setAttribute('visibility', 'hidden');
+        } else if (mode === 'walk') {
+          const halfStepDuration = 0.68;
+          const halfStepsPerLoop = 10;
+          const stride = 250;
+          const legOffset = 42;
+          const loopTime = seconds % (halfStepDuration * halfStepsPerLoop);
+          const halfStep = Math.floor(loopTime / halfStepDuration);
+          const progress = (loopTime / halfStepDuration) - halfStep;
+          const smoothstep = value => {
+            const x = Math.max(0, Math.min(1, value));
+            return x * x * (3 - 2 * x);
+          };
+          const easeRange = (start, end) => smoothstep((progress - start) / (end - start));
+          const doubleSupportEnd = 0.18;
+          const swingPhase = Math.max(0, Math.min(1,
+            (progress - doubleSupportEnd) / (1 - doubleSupportEnd)
+          ));
+          const eased = smoothstep(swingPhase);
+          const leftIsPlanted = halfStep % 2 === 0;
+          const pair = Math.floor(halfStep / 2);
+          const firstLeftContact = -137.5;
+          const plantedContact = leftIsPlanted
+            ? firstLeftContact + pair * stride * 2
+            : firstLeftContact + pair * stride * 2 + stride - legOffset;
+          const previousContact = leftIsPlanted
+            ? plantedContact - stride - legOffset
+            : plantedContact - stride + legOffset;
+          const nextContact = leftIsPlanted
+            ? plantedContact + stride - legOffset
+            : plantedContact + stride + legOffset;
+          const plantedHip = leftIsPlanted ? 392 : 392 - legOffset;
+          const torsoLead = 26 * Math.sin(Math.PI * progress) ** 2;
+          const rootX = plantedContact - (plantedHip + 50.5) + (progress - 0.5) * stride + torsoLead;
+          const groundY = 1020;
+          const plantedFootAngle = -8 * (1 - easeRange(0, 0.16))
+            + 18 * easeRange(0.58, 1);
+          const trailingToeOff = easeRange(0, doubleSupportEnd);
+          const swingToeRecovery = easeRange(doubleSupportEnd, 0.50);
+          const swingHeelPreparation = easeRange(0.85, 1);
+          const swingingFootAngle = progress < doubleSupportEnd
+            ? 18 + 8 * trailingToeOff
+            : 24 * (1 - swingToeRecovery) - 8 * swingHeelPreparation;
+          const leftHeelAngle = leftIsPlanted ? plantedFootAngle : swingingFootAngle;
+          const rightHeelAngle = leftIsPlanted ? swingingFootAngle : plantedFootAngle;
+          const rootY = plantedRootY(
+            plantedContact,
+            groundY,
+            rootX,
+            leftIsPlanted ? 0 : -legOffset,
+            0,
+            5
+          ) - 2 * Math.sin(Math.PI * progress) ** 2;
+          const swingingContact = previousContact + (nextContact - previousContact) * eased;
+          const swingingY = groundY - 58 * Math.sin(Math.PI * swingPhase);
+          const leftLeg = leftIsPlanted
+            ? solveLeg(plantedContact, groundY, rootX, rootY, 0, leftHeelAngle)
+            : solveLeg(swingingContact, swingingY, rootX, rootY, 0, leftHeelAngle);
+          const rightLeg = leftIsPlanted
+            ? solveLeg(swingingContact, swingingY, rootX, rootY, -legOffset, rightHeelAngle)
+            : solveLeg(plantedContact, groundY, rootX, rootY, -legOffset, rightHeelAngle);
+
+          // The planted shoe stays at one world-space point while the hip and knee pass over it.
+          setLeftLegSpread(0);
+          moveRoot(rootX, rootY);
+          rotate('rig-leg-left-upper', leftLeg.upper);
+          rotate('rig-leg-left-lower', leftLeg.lower);
+          rotate('rig-foot-left', 0);
+          rotate('rig-leg-right-upper', rightLeg.upper);
+          rotate('rig-leg-right-lower', rightLeg.lower);
+          rotate('rig-foot-right', 0);
+          const armPhase = Math.cos(Math.PI * (halfStep + progress - 0.06));
+          rotate('rig-arm-left-upper', armPhase * 12);
+          rotate('rig-arm-right-upper', -armPhase * 12);
+          rotate('rig-arm-left-forearm', -17 - Math.max(0, -armPhase) * 5);
+          rotate('rig-arm-right-forearm', -12 - Math.max(0, armPhase) * 5);
+          rotate('rig-upper-body', 0);
+          const rigPerson = document.getElementById('rig-person');
+          rigPerson.dataset.leftFootAngle = leftHeelAngle.toFixed(3);
+          rigPerson.dataset.rightFootAngle = rightHeelAngle.toFixed(3);
+          rigPerson.dataset.doubleSupport = String(progress < doubleSupportEnd);
+          rigPerson.dataset.swingPhase = swingPhase.toFixed(3);
+          rigPerson.dataset.gaitStancePercent = '62';
+          rigPerson.dataset.gaitSwingPercent = '38';
+          rigPerson.dataset.gaitMode = 'walk';
+        } else if (mode === 'run') {
+          const halfStepDuration = 0.40;
+          const halfStepsPerLoop = 10;
+          const stride = 410;
+          const legOffset = 42;
+          const dutyFactor = 0.20;
+          const supportEnd = dutyFactor * 2;
+          const loopTime = seconds % (halfStepDuration * halfStepsPerLoop);
+          const halfStep = Math.floor(loopTime / halfStepDuration);
+          const progress = (loopTime / halfStepDuration) - halfStep;
+          const smoothstep = value => {
+            const x = Math.max(0, Math.min(1, value));
+            return x * x * x * (x * (x * 6 - 15) + 10);
+          };
+          const leftIsContactLeg = halfStep % 2 === 0;
+          const pair = Math.floor(halfStep / 2);
+          const firstLeftContact = -167.5;
+          const contactLegContact = leftIsContactLeg
+            ? firstLeftContact + pair * stride * 2
+            : firstLeftContact + pair * stride * 2 + stride - legOffset;
+          const otherPreviousContact = leftIsContactLeg
+            ? contactLegContact - stride - legOffset
+            : contactLegContact - stride + legOffset;
+          const otherNextContact = leftIsContactLeg
+            ? contactLegContact + stride - legOffset
+            : contactLegContact + stride + legOffset;
+          const contactHipShift = leftIsContactLeg ? 0 : -legOffset;
+          const otherHipShift = leftIsContactLeg ? -legOffset : 0;
+          const contactHip = 392 + contactHipShift;
+          const rootX = contactLegContact - (contactHip + 50.5)
+            + (progress - 0.13) * stride + 20;
+          const groundY = 1020;
+
+          const footState = (phase, previousContact, nextContact) => {
+            if (phase < dutyFactor) {
+              return { x: previousContact, y: groundY, stance: true };
+            }
+            const swingProgress = Math.max(0, Math.min(1,
+              (phase - dutyFactor) / (1 - dutyFactor)
+            ));
+            const swingArc = Math.sin(Math.PI * swingProgress);
+            return {
+              x: previousContact + (nextContact - previousContact) * smoothstep(swingProgress),
+              y: groundY - 155 * swingArc * swingArc,
+              stance: false
+            };
+          };
+          const footAngle = phase => {
+            if (phase < dutyFactor) {
+              const settle = smoothstep(phase / 0.08);
+              const toeOff = smoothstep((phase - (dutyFactor - 0.16)) / 0.16);
+              return -2 * (1 - settle) + 24 * toeOff;
+            }
+            const swingProgress = (phase - dutyFactor) / (1 - dutyFactor);
+            const recovery = smoothstep(swingProgress / 0.28);
+            const landingPreparation = smoothstep((swingProgress - 0.82) / 0.18);
+            return 24 * (1 - recovery) - 2 * landingPreparation;
+          };
+
+          const contactLegPhase = progress * 0.5;
+          const otherLegPhase = 0.5 + progress * 0.5;
+          const contactFoot = footState(
+            contactLegPhase,
+            contactLegContact,
+            contactLegContact + stride * 2
+          );
+          const otherFoot = footState(otherLegPhase, otherPreviousContact, otherNextContact);
+          const contactFootAngle = footAngle(contactLegPhase);
+          const otherFootAngle = footAngle(otherLegPhase);
+
+          if (progress > supportEnd) {
+            const flightProgress = (progress - supportEnd) / (1 - supportEnd);
+            const flightArc = Math.sin(Math.PI * flightProgress);
+            const sharedFlightLift = 65 * flightArc * flightArc;
+            contactFoot.y -= sharedFlightLift;
+            otherFoot.y -= sharedFlightLift;
+          }
+
+          const stanceProgress = Math.min(1, progress / supportEnd);
+          let rootY = plantedRootY(
+            contactLegContact,
+            groundY,
+            rootX,
+            contactHipShift,
+            contactFootAngle,
+            11
+          )
+            - 2 * Math.sin(Math.PI * stanceProgress) ** 2;
+          if (progress > supportEnd) {
+            const flightProgress = (progress - supportEnd) / (1 - supportEnd);
+            const takeoffRootX = contactLegContact - (contactHip + 50.5)
+              + (supportEnd - 0.13) * stride + 20;
+            const takeoffRootY = plantedRootY(
+              contactLegContact,
+              groundY,
+              takeoffRootX,
+              contactHipShift,
+              footAngle(dutyFactor),
+              11
+            );
+            const landingHip = 392 + otherHipShift;
+            const landingRootX = otherNextContact - (landingHip + 50.5) - stride * 0.13 + 20;
+            const landingRootY = plantedRootY(
+              otherNextContact,
+              groundY,
+              landingRootX,
+              otherHipShift,
+              footAngle(0),
+              11
+            );
+            const flightArc = Math.sin(Math.PI * flightProgress);
+            rootY = takeoffRootY
+              + (landingRootY - takeoffRootY) * smoothstep(flightProgress)
+              - 30 * flightArc * flightArc;
+          }
+
+          const leftFoot = leftIsContactLeg ? contactFoot : otherFoot;
+          const rightFoot = leftIsContactLeg ? otherFoot : contactFoot;
+          const leftHeelAngle = leftIsContactLeg ? contactFootAngle : otherFootAngle;
+          const rightHeelAngle = leftIsContactLeg ? otherFootAngle : contactFootAngle;
+          const leftLeg = solveLeg(leftFoot.x, leftFoot.y, rootX, rootY, 0, leftHeelAngle);
+          const rightLeg = solveLeg(rightFoot.x, rightFoot.y, rootX, rootY, -legOffset, rightHeelAngle);
+
+          setLeftLegSpread(0);
+          moveRoot(rootX, rootY);
+          rotate('rig-leg-left-upper', leftLeg.upper);
+          rotate('rig-leg-left-lower', leftLeg.lower);
+          rotate('rig-foot-left', 0);
+          rotate('rig-leg-right-upper', rightLeg.upper);
+          rotate('rig-leg-right-lower', rightLeg.lower);
+          rotate('rig-foot-right', 0);
+          const armPhase = Math.cos(Math.PI * (halfStep + progress));
+          rotate('rig-arm-left-upper', armPhase * 32);
+          rotate('rig-arm-right-upper', -armPhase * 32);
+          rotate('rig-arm-left-forearm', -42 - Math.max(0, -armPhase) * 12);
+          rotate('rig-arm-right-forearm', -40 - Math.max(0, armPhase) * 12);
+          document.getElementById('rig-upper-body').setAttribute(
+            'transform',
+            'rotate(14 380 585)'
+          );
+
+          const rigPerson = document.getElementById('rig-person');
+          rigPerson.dataset.leftFootAngle = leftHeelAngle.toFixed(3);
+          rigPerson.dataset.rightFootAngle = rightHeelAngle.toFixed(3);
+          rigPerson.dataset.doubleSupport = 'false';
+          rigPerson.dataset.flightPhase = String(progress > supportEnd);
+          rigPerson.dataset.leftLegPhase = (leftIsContactLeg ? contactLegPhase : otherLegPhase).toFixed(3);
+          rigPerson.dataset.rightLegPhase = (leftIsContactLeg ? otherLegPhase : contactLegPhase).toFixed(3);
+          rigPerson.dataset.gaitStancePercent = '20';
+          rigPerson.dataset.gaitSwingPercent = '80';
+          rigPerson.dataset.gaitMode = 'run';
+          rigPerson.dataset.runState = JSON.stringify({
+            halfStep,
+            progress: Number(progress.toFixed(4)),
+            flight: progress > supportEnd,
+            contact: progress > supportEnd ? 'none' : (leftIsContactLeg ? 'left' : 'right'),
+            rootY: Number(rootY.toFixed(3)),
+            leftFootY: Number(leftFoot.y.toFixed(3)),
+            rightFootY: Number(rightFoot.y.toFixed(3)),
+            leftArm: Number((armPhase * 32).toFixed(3)),
+            rightArm: Number((-armPhase * 32).toFixed(3))
+          });
+        } else {
+          return;
+        }
+        if (!Number.isFinite(fixedQaSeconds)) {
+          frameId = requestAnimationFrame(animate);
+        }
+      }
+
+      function startMode() {
+        resetPose();
+        const mode = location.hash.slice(1);
+        if (mode !== 'wave' && mode !== 'walk' && mode !== 'run' && mode !== 'work' && !mode.startsWith('work-')) return;
+        startedAt = performance.now();
+        frameId = requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('hashchange', startMode);
+      startMode();
+    })();
+  ]]></script>
+</svg>

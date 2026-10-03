@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>British narrator + running character</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; padding: 32px 18px 48px; color: #fff; background: #b80072; }
+    main { width: min(1120px, 100%); margin: auto; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.8rem, 4vw, 3.5rem); }
+    p { color: #f4def0; line-height: 1.55; }
+    .card { margin-top: 22px; padding: 20px; border: 1px solid #ffffff2b; border-radius: 20px; background: #32196f; }
+    audio { width: 100%; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+    video { display: block; width: 100%; max-height: 72vh; border-radius: 14px; background: #fff; }
+    h2 { margin: 0 0 14px; color: #ffd84d; font-size: 1.1rem; }
+    a { color: #8ff4eb; font-weight: 700; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>British narrator + running character</h1>
+    <p>A clone-ready bundle containing the existing narrator audio, editable SVG rig and rendered motion previews.</p>
+    <section class="card">
+      <h2>88 Hz British narrator</h2>
+      <audio controls preload="metadata" src="audio/first-qwen-voice-88hz.mp3"></audio>
+    </section>
+    <div class="grid">
+      <section class="card">
+        <h2>Running — Front 45°</h2>
+        <video controls muted loop playsinline preload="metadata" src="previews/running-preview-front45-v137.mp4"></video>
+      </section>
+      <section class="card">
+        <h2>Running — Side</h2>
+        <video controls muted loop playsinline preload="metadata" src="previews/running-preview-side-v137.mp4"></video>
+      </section>
+    </div>
+    <section class="card">
+      <h2>Open the rig</h2>
+      <p><a href="rig/demo.html">Interactive SVG rig</a> · <a href="previews/">All walk/run previews</a> · <a href="rig/person-rig-candidate.svg">Front SVG source</a></p>
+    </section>
+  </main>
+</body>
+</html>

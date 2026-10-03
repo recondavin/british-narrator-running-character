@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     id="person-svg"
+     viewBox="-80 0 880 1080"
+     width="880"
+     height="1080"
+     role="img"
+     aria-labelledby="person-title person-desc">
+  <title id="person-title">Calculated layered person rig, 45 degrees from front</title>
+  <desc id="person-desc">A new flat-vector person constructed from a forty-five-degree orthographic projection between the straight front and screen-right profile views.</desc>
+
+  <metadata>
+    Candidate status: unapproved new 45-degree-from-front construction.
+    Structural authorities: person-rig-candidate.svg at 0 degrees and person-rig-side-candidate.svg at 90 degrees.
+    Projection: u = x*cos(45deg) + z*sin(45deg). Torso half-width = sqrt((108*cos45)^2 + (65*sin45)^2) = 89 units.
+    Depth order: viewer-left limbs are nearest but remain behind the torso edge; viewer-right limbs recede and remain partially visible.
+    Construction: deterministic semantic SVG layers, solid flat fills, no gradients.
+  </metadata>
+
+  <defs>
+    <style>
+      .rig { transform-box: view-box; }
+      .joint-guide {
+        display: none;
+        fill: #ffd84d;
+        stroke: #ffffff;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+      #person-svg.show-pivots .joint-guide { display: block; }
+    </style>
+  </defs>
+
+  <g id="layer-ground" data-role="layer" aria-label="Walking path">
+    <path id="walking-path" d="M-80 1018H800V1080H-80Z" fill="#32196f"/>
+    <path id="walking-path-edge" d="M-80 1026H800" fill="none" stroke="#7652d9" stroke-width="8"/>
+  </g>
+
+  <g id="rig-person" class="rig" data-role="root" data-pivot-x="360" data-pivot-y="585" transform="translate(0 0)">
+    <!-- Nearest arm: projected from the viewer-left shoulder and deliberately kept behind the torso. -->
+    <g id="layer-near-arm" data-role="layer" aria-label="Nearest arm behind torso">
+      <g id="rig-arm-left-upper" class="rig" data-role="upper-arm" data-side="left" data-pivot-x="286" data-pivot-y="300" transform="rotate(0 286 300)">
+        <path id="arm-left-upper-base" d="M286 300L273 438" fill="none" stroke="#5638b7" stroke-width="62" stroke-linecap="round"/>
+        <g id="rig-arm-left-forearm" class="rig" data-role="forearm" data-side="left" data-pivot-x="273" data-pivot-y="438" transform="rotate(0 273 438)">
+          <path id="arm-left-forearm-base" d="M273 438L282 605" fill="none" stroke="#5638b7" stroke-width="62" stroke-linecap="round"/>
+          <g id="rig-hand-left" class="rig" data-role="hand" data-side="left" data-pivot-x="282" data-pivot-y="605" transform="rotate(0 282 605)">
+            <g id="art-hand-left" transform="translate(0 20)">
+              <path id="hand-left-palm" d="M260 574Q260 568 267 568H299Q306 568 307 576L308 604Q309 617 297 622H271Q258 618 259 605Z" fill="#ffad79"/>
+              <rect x="259" y="606" width="11" height="32" rx="5.5" fill="#ffad79"/>
+              <rect x="272" y="611" width="11" height="31" rx="5.5" fill="#ffad79"/>
+              <rect x="285" y="611" width="11" height="30" rx="5.5" fill="#ffad79"/>
+              <rect id="hand-left-index" x="298" y="607" width="11" height="29" rx="5.5" fill="#ffad79"/>
+              <path id="hand-left-thumb" d="M300 586Q312 589 317 601L320 609Q322 616 316 620Q310 622 306 615L299 602Z" fill="#ffad79"/>
+            </g>
+          </g>
+          <path id="sleeve-left-wrist-edge" d="M252 607L312 603" fill="none" stroke="#3f2793" stroke-width="6" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Legs use projected hip separation: 55*cos(45deg) = 39 units from centre. -->
+    <g id="layer-legs" data-role="layer">
+      <g id="rig-leg-right-position" data-role="leg-position">
+        <g id="rig-leg-right-upper" class="rig" data-role="upper-leg" data-side="right" data-pivot-x="399" data-pivot-y="590" transform="rotate(0 399 590)">
+          <path id="leg-right-upper-base" d="M399 590L409 782" fill="none" stroke="#472e9c" stroke-width="72" stroke-linecap="round"/>
+          <g id="rig-leg-right-lower" class="rig" data-role="lower-leg" data-side="right" data-pivot-x="409" data-pivot-y="782" transform="rotate(0 409 782)">
+            <path id="leg-right-lower-base" d="M409 782L402 970" fill="none" stroke="#472e9c" stroke-width="72" stroke-linecap="round"/>
+            <g id="rig-foot-right" class="rig" data-role="foot" data-side="right" data-pivot-x="402" data-pivot-y="970" transform="rotate(0 402 970)">
+              <g id="art-foot-right">
+                <path id="foot-right-shoe" d="M378 966C388 956 399 952 411 953C423 954 435 961 445 971L463 990Q472 1000 467 1009Q463 1017 452 1018H373Q361 1018 359 1008Q357 999 364 989L373 975Q375 970 378 966Z" fill="#0da9b3"/>
+                <path d="M359 1000H469V1007Q469 1018 456 1018H372Q359 1018 359 1007Z" fill="#087f9b"/>
+                <path d="M384 970Q410 960 437 974" fill="none" stroke="#65ddd8" stroke-width="7" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+
+      <g id="rig-leg-left-position" data-role="leg-position">
+        <g id="rig-leg-left-upper" class="rig" data-role="upper-leg" data-side="left" data-pivot-x="321" data-pivot-y="590" transform="rotate(0 321 590)">
+          <path id="leg-left-upper-base" d="M321 590L310 784" fill="none" stroke="#5638b7" stroke-width="78" stroke-linecap="round"/>
+          <g id="rig-leg-left-lower" class="rig" data-role="lower-leg" data-side="left" data-pivot-x="310" data-pivot-y="784" transform="rotate(0 310 784)">
+            <path id="leg-left-lower-base" d="M310 784L322 970" fill="none" stroke="#5638b7" stroke-width="78" stroke-linecap="round"/>
+            <g id="rig-foot-left" class="rig" data-role="foot" data-side="left" data-pivot-x="322" data-pivot-y="970" transform="rotate(0 322 970)">
+              <g id="art-foot-left">
+                <path id="foot-left-shoe" d="M296 962C308 952 321 949 335 951C350 953 364 961 375 972L388 989Q397 1000 391 1010Q387 1018 375 1018H286Q274 1018 271 1008Q268 999 275 989L287 971Q291 966 296 962Z" fill="#11c5c1"/>
+                <path d="M271 1000H393V1007Q393 1018 380 1018H284Q271 1018 271 1007Z" fill="#087f9b"/>
+                <path d="M302 968Q330 957 360 973" fill="none" stroke="#8ff4eb" stroke-width="7" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <g id="rig-upper-body" class="rig" data-role="upper-body" data-pivot-x="360" data-pivot-y="585" transform="rotate(0 360 585)">
+      <!-- Receding arm: on screen-right, behind the torso, but more exposed than in the 90-degree side view. -->
+      <g id="layer-far-arm" data-role="layer" aria-label="Receding arm behind torso">
+        <g id="rig-arm-right-upper" class="rig" data-role="upper-arm" data-side="right" data-pivot-x="434" data-pivot-y="305" transform="rotate(0 434 305)">
+          <path id="arm-right-upper-base" d="M434 305L425 440" fill="none" stroke="#472e9c" stroke-width="56" stroke-linecap="round"/>
+          <g id="rig-arm-right-forearm" class="rig" data-role="forearm" data-side="right" data-pivot-x="425" data-pivot-y="440" transform="rotate(0 425 440)">
+            <path id="arm-right-forearm-base" d="M425 440L434 605" fill="none" stroke="#472e9c" stroke-width="56" stroke-linecap="round"/>
+            <g id="rig-hand-right" class="rig" data-role="hand" data-side="right" data-pivot-x="434" data-pivot-y="605" transform="rotate(0 434 605)">
+              <g id="art-hand-right" transform="translate(0 20)">
+                <path id="hand-right-palm" d="M414 574Q414 568 421 568H448Q455 568 456 576L457 603Q458 615 447 620H424Q412 616 413 604Z" fill="#f19a69"/>
+                <rect x="414" y="605" width="10" height="29" rx="5" fill="#f19a69"/>
+                <rect x="426" y="609" width="10" height="29" rx="5" fill="#f19a69"/>
+                <rect x="438" y="609" width="10" height="28" rx="5" fill="#f19a69"/>
+                <rect id="hand-right-index" x="450" y="605" width="10" height="27" rx="5" fill="#f19a69"/>
+                <path id="hand-right-thumb" d="M419 585Q408 588 404 599L401 607Q399 614 405 617Q411 619 414 612L421 600Z" fill="#f19a69"/>
+              </g>
+            </g>
+            <path id="sleeve-right-wrist-edge" d="M406 607L462 603" fill="none" stroke="#36217e" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Elliptical torso projection: half-width 89, with the screen-right contour slightly compressed. -->
+      <g id="layer-torso" data-role="layer">
+        <path id="torso-shirt-base" d="M360 245C410 245 444 269 449 314L452 554Q454 600 411 600H311Q270 600 270 559V321Q270 276 310 253Q332 244 360 245Z" fill="#7652d9"/>
+        <path id="shirt-emblem" d="M366 338L342 379H360L344 419L388 367H368L388 338Z" fill="#ffd84d"/>
+      </g>
+    </g>
+
+    <g id="layer-joint-guides" data-role="guide-layer" aria-hidden="true">
+      <circle class="joint-guide" cx="360" cy="585" r="8"/>
+      <circle class="joint-guide" cx="286" cy="300" r="8"/>
+      <circle class="joint-guide" cx="273" cy="438" r="8"/>
+      <circle class="joint-guide" cx="282" cy="605" r="8"/>
+      <circle class="joint-guide" cx="434" cy="305" r="8"/>
+      <circle class="joint-guide" cx="425" cy="440" r="8"/>
+      <circle class="joint-guide" cx="434" cy="605" r="8"/>
+      <circle class="joint-guide" cx="321" cy="590" r="8"/>
+      <circle class="joint-guide" cx="310" cy="784" r="8"/>
+      <circle class="joint-guide" cx="322" cy="970" r="8"/>
+      <circle class="joint-guide" cx="399" cy="590" r="8"/>
+      <circle class="joint-guide" cx="409" cy="782" r="8"/>
+      <circle class="joint-guide" cx="402" cy="970" r="8"/>
+    </g>
+  </g>
+
+  <script><![CDATA[
+    (() => {
+      let frameId = 0;
+      let startedAt = 0;
+
+      function rotate(id, angle) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        element.setAttribute('transform', `rotate(${angle} ${element.dataset.pivotX} ${element.dataset.pivotY})`);
+      }
+
+      function resetPose() {
+        cancelAnimationFrame(frameId);
+        document.querySelectorAll('.rig[data-pivot-x][data-pivot-y]').forEach(element => {
+          if (element.id === 'rig-person') {
+            element.setAttribute('transform', 'translate(0 0)');
+          } else {
+            element.setAttribute('transform', `rotate(0 ${element.dataset.pivotX} ${element.dataset.pivotY})`);
+          }
+        });
+      }
+
+      function animate(now) {
+        const seconds = (now - startedAt) / 1000;
+        const mode = location.hash.slice(1);
+        if (mode === 'wave') {
+          const wave = Math.sin(seconds * 7);
+          const settle = Math.sin(seconds * 3.5);
+          rotate('rig-arm-right-upper', -64 + settle * 3);
+          rotate('rig-arm-right-forearm', -108 + wave * 15);
+          rotate('rig-hand-right', wave * 18);
+          rotate('rig-arm-left-upper', -3 - settle * 2);
+          rotate('rig-hand-left', settle * 4);
+          rotate('rig-upper-body', -2 + settle * 1.2);
+        } else if (mode === 'walk') {
+          const swing = Math.sin(seconds * 5);
+          rotate('rig-leg-left-upper', swing * 18);
+          rotate('rig-leg-right-upper', -swing * 18);
+          rotate('rig-leg-left-lower', Math.max(0, -swing) * 28);
+          rotate('rig-leg-right-lower', Math.max(0, swing) * -28);
+          rotate('rig-arm-left-upper', -swing * 18);
+          rotate('rig-arm-right-upper', swing * 18);
+          rotate('rig-upper-body', Math.sin(seconds * 10) * 1.2);
+        } else {
+          return;
+        }
+        frameId = requestAnimationFrame(animate);
+      }
+
+      function startMode() {
+        resetPose();
+        const mode = location.hash.slice(1);
+        if (mode !== 'wave' && mode !== 'walk') return;
+        startedAt = performance.now();
+        frameId = requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('hashchange', startMode);
+      startMode();
+    })();
+  ]]></script>
+</svg>

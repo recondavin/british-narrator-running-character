@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walking and running previews</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #230d4b;
+      color: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px;
+      background: #b80072;
+    }
+    header {
+      max-width: 1180px;
+      margin: 0 auto 18px;
+    }
+    h1 { margin: 0; font-size: clamp(1.35rem, 2vw, 2rem); }
+    .previews {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      background: #32196f;
+    }
+    h2 {
+      margin: 0;
+      padding: 14px 16px;
+      color: #ffd84d;
+      font-size: 1rem;
+    }
+    video {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 130px);
+      background: #fff;
+    }
+    @media (max-width: 760px) {
+      body { padding: 16px; }
+      .previews { grid-template-columns: 1fr; }
+      video { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header><h1>Walking and running previews</h1></header>
+  <main class="previews">
+    <article>
+      <h2>Walking — Front 45°</h2>
+      <video controls autoplay muted loop playsinline preload="auto">
+        <source src="walking-preview-front45-v137.mp4" type="video/mp4">
+      </video>
+    </article>
+    <article>
+      <h2>Running — Front 45°</h2>
+      <video controls autoplay muted loop playsinline preload="auto">
+        <source src="running-preview-front45-v137.mp4" type="video/mp4">
+      </video>
+    </article>
+    <article>
+      <h2>Walking — Side</h2>
+      <video controls autoplay muted loop playsinline preload="auto">
+        <source src="walking-preview-side-v137.mp4" type="video/mp4">
+      </video>
+    </article>
+    <article>
+      <h2>Running — Side</h2>
+      <video controls autoplay muted loop playsinline preload="auto">
+        <source src="running-preview-side-v137.mp4" type="video/mp4">
+      </video>
+    </article>
+  </main>
+</body>
+</html>
